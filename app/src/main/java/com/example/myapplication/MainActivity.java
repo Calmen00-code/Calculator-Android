@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private static double numOne;
     private static double numTwo;
     private static double answer;
+    private static String errorMsg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,36 +39,56 @@ public class MainActivity extends AppCompatActivity {
         additionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setNumber(inputOne, inputTwo);
-                answer = numOne + numTwo;
-                result.setText(String.valueOf(answer));
+                try {
+                    setNumber(inputOne, inputTwo);
+                    answer = numOne + numTwo;
+                    result.setText(String.valueOf(answer));
+                } catch (NumberFormatException e) {
+                    errorMsg = "Number is missing! Please complete the field!";
+                    result.setText(errorMsg);
+                }
             }
         });
 
         subtractionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setNumber(inputOne, inputTwo);
-                answer = numOne - numTwo;
-                result.setText(String.valueOf(answer));
+                try {
+                    setNumber(inputOne, inputTwo);
+                    answer = numOne - numTwo;
+                    result.setText(String.valueOf(answer));
+                } catch (NumberFormatException e) {
+                    errorMsg = "Number is missing! Please complete the field!";
+                    result.setText(errorMsg);
+                }
             }
         });
 
         multiplyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setNumber(inputOne, inputTwo);
-                answer = numOne * numTwo;
-                result.setText(String.valueOf(answer));
+                try {
+                    setNumber(inputOne, inputTwo);
+                    answer = numOne * numTwo;
+                    result.setText(String.valueOf(answer));
+                } catch (NumberFormatException e) {
+                    errorMsg = "Number is missing! Please complete the field!";
+                    result.setText(errorMsg);
+                }
             }
         });
 
         divisionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setNumber(inputOne, inputTwo);
-                answer = numOne / numTwo;
-                result.setText(String.valueOf(answer));
+                try {
+                    setNumber(inputOne, inputTwo);
+                    answer = numOne / numTwo;
+                    result.setText(String.valueOf(answer));
+                } catch (NumberFormatException e) {
+                    errorMsg = "Number is missing! Please complete the field!";
+                    result.setText(errorMsg);
+                }
             }
         });
     }
